@@ -32,7 +32,7 @@
         android:layout_centerVertical="true"
         android:scaleType="centerInside"
         android:cropToPadding="false"
-        tools:src="@drawable/ic_history_black_24dp"/>
+        tools:src="@drawable/ic_history"/>
 
     <TextView
         android:id="@+id/textTv"
@@ -71,7 +71,7 @@
             android:layout_gravity="center"
             android:scaleType="centerInside"
             android:background="?attr/selectableItemBackgroundBorderless"
-            tools:src="@drawable/ic_close_black_24dp"/>
+            tools:src="@drawable/ic_close"/>
 
     </FrameLayout>
 

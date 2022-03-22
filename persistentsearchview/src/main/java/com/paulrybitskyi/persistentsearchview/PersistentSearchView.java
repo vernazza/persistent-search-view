@@ -274,9 +274,9 @@ public class PersistentSearchView extends FrameLayout {
 
 
     private void initDefaultDrawables() {
-        leftButtonDrawable = ContextCompat.getDrawable(getContext(), R.drawable.ic_arrow_left_black_24dp);
-        clearInputButtonDrawable = ContextCompat.getDrawable(getContext(), R.drawable.ic_close_black_24dp);
-        voiceInputButtonDrawable = ContextCompat.getDrawable(getContext(), R.drawable.ic_microphone_black_24dp);
+        leftButtonDrawable = ContextCompat.getDrawable(getContext(), R.drawable.ic_arrow_left);
+        clearInputButtonDrawable = ContextCompat.getDrawable(getContext(), R.drawable.ic_close);
+        voiceInputButtonDrawable = ContextCompat.getDrawable(getContext(), R.drawable.ic_microphone);
         queryInputCursorDrawable = ContextCompat.getDrawable(getContext(), R.drawable.persistent_search_view_cursor_drawable);
     }
 

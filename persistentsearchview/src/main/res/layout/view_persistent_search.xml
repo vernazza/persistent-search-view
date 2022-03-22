@@ -55,7 +55,7 @@
                     android:layout_gravity="center"
                     android:scaleType="centerInside"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    tools:src="@drawable/ic_arrow_left_black_24dp"/>
+                    tools:src="@drawable/ic_arrow_left"/>
 
                 <ProgressBar
                     android:id="@+id/progressBar"
@@ -106,7 +106,7 @@
                     android:layout_gravity="center"
                     android:scaleType="centerInside"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    tools:src="@drawable/ic_close_black_24dp"/>
+                    tools:src="@drawable/ic_close"/>
 
                 <ImageView
                     android:id="@+id/voiceInputBtnIv"
@@ -115,7 +115,7 @@
                     android:layout_gravity="center"
                     android:scaleType="centerInside"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    tools:src="@drawable/ic_microphone_black_24dp"/>
+                    tools:src="@drawable/ic_microphone"/>
 
             </FrameLayout>
 
@@ -135,7 +135,7 @@
                     android:layout_gravity="center"
                     android:scaleType="centerInside"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    tools:src="@drawable/ic_filter_variant_black_24dp"/>
+                    tools:src="@drawable/ic_filter_variant"/>
 
             </FrameLayout>
 

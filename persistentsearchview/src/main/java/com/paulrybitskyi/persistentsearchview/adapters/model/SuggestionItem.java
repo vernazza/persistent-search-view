@@ -150,7 +150,7 @@ public class SuggestionItem extends BaseItem<
     }
 
     protected Drawable getIcon(Context context, Suggestion suggestion) {
-        final int drawableResId =  isRecentItem(suggestion) ? R.drawable.ic_history_black_24dp : R.drawable.ic_magnify_black_24dp;
+        final int drawableResId =  isRecentItem(suggestion) ? R.drawable.ic_history : R.drawable.ic_magnify;
         return ContextCompat.getDrawable(context, drawableResId);
     }
 
@@ -193,7 +193,7 @@ public class SuggestionItem extends BaseItem<
             viewHolder.removeBtnIv.setImageDrawable(
                 Utils.getColoredDrawable(
                     viewHolder.removeBtnIv.getContext(),
-                    R.drawable.ic_close_black_24dp,
+                    R.drawable.ic_close,
                     resources.getIconColor()
                 )
             );
