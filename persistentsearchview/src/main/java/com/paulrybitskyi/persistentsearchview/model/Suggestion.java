@@ -16,12 +16,10 @@
 
 package com.paulrybitskyi.persistentsearchview.model;
 
-import java.io.Serializable;
-
 /**
  * A model class representing a suggestion.
  */
-public class Suggestion implements Serializable {
+public class Suggestion {
 
 
     public static final String TYPE_RECENT_SEARCH_SUGGESTION = "recent_search_suggestion";
@@ -29,15 +27,16 @@ public class Suggestion implements Serializable {
 
 
     private long id;
+    private Object tag;
 
     private String type;
     private String text;
-
-
+    
     public Suggestion() {
         this.id = -1L;
         this.type = TYPE_REGULAR_SEARCH_SUGGESTION;
         this.text = "";
+        this.tag = null;
     }
 
 
@@ -61,6 +60,28 @@ public class Suggestion implements Serializable {
      */
     public long getId() {
         return this.id;
+    }
+
+    /**
+     * Sets the tag of the suggestion.
+     *
+     * @param tag The tag to set
+     *
+     * @return this
+     */
+    public Suggestion setTag(Object tag) {
+        this.tag = tag;
+        return this;
+    }
+
+
+    /**
+     * Gets the id of the suggestion.
+     *
+     * @return The suggestion's id
+     */
+    public Object getTag() {
+        return this.tag;
     }
 
 
@@ -119,6 +140,4 @@ public class Suggestion implements Serializable {
     public String getText() {
         return this.text;
     }
-
-
 }
