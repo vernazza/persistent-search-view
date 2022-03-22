@@ -16,6 +16,8 @@
 
 package com.paulrybitskyi.persistentsearchview.adapters.model;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -39,6 +41,7 @@ import com.paulrybitskyi.persistentsearchview.utils.Utils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import static com.paulrybitskyi.persistentsearchview.utils.ViewUtils.makeGone;
 import static com.paulrybitskyi.persistentsearchview.utils.ViewUtils.makeVisible;
@@ -114,14 +117,10 @@ public class SuggestionItem extends BaseItem<
     ) {
         super.bind(adapter, viewHolder, resources);
 
-        final Suggestion suggestion = getItemModel();
-        final boolean isRecentSearchSuggestion = Suggestion.TYPE_RECENT_SEARCH_SUGGESTION.equals(suggestion.getType());
-
         bindText(viewHolder, resources);
-        bindIcon(isRecentSearchSuggestion, viewHolder, resources);
-        bindButton(isRecentSearchSuggestion, viewHolder, resources);
+        bindIcon(viewHolder, resources);
+        bindButton(viewHolder, resources);
     }
-
 
     private void bindText(
         ViewHolder viewHolder,
@@ -133,19 +132,33 @@ public class SuggestionItem extends BaseItem<
 
 
     private void bindIcon(
-        boolean isRecentSearchSuggestion,
         ViewHolder viewHolder,
         SuggestionItemResources resources
     ) {
+        final Suggestion suggestion = getItemModel();
+
         viewHolder.iconIv.setImageDrawable(
             Utils.getColoredDrawable(
-                viewHolder.iconIv.getContext(),
-                (isRecentSearchSuggestion ? R.drawable.ic_history_black_24dp : R.drawable.ic_magnify_black_24dp),
-                (isRecentSearchSuggestion ? resources.getRecentSearchIconColor() : resources.getSearchSuggestionIconColor())
+                getIcon(viewHolder.iconIv.getContext(),suggestion),
+                getIconTint(resources,suggestion)
             )
         );
     }
 
+    protected boolean isRecentItem(Suggestion suggestion){
+        return Suggestion.TYPE_RECENT_SEARCH_SUGGESTION.equals(suggestion.getType());
+    }
+
+    protected Drawable getIcon(Context context, Suggestion suggestion) {
+        final int drawableResId =  isRecentItem(suggestion) ? R.drawable.ic_history_black_24dp : R.drawable.ic_magnify_black_24dp;
+        return ContextCompat.getDrawable(context, drawableResId);
+    }
+
+    protected int getIconTint(SuggestionItemResources resources, Suggestion suggestion) {
+        return isRecentItem(suggestion)
+                ? resources.getRecentSearchIconColor()
+                : resources.getSearchSuggestionIconColor();
+    }
 
     private void handleText(ViewHolder viewHolder, SuggestionItemResources resources) {
         final Suggestion suggestion = getItemModel();
@@ -173,11 +186,10 @@ public class SuggestionItem extends BaseItem<
 
 
     private void bindButton(
-        boolean isRecentSearchSuggestion,
         ViewHolder viewHolder,
         SuggestionItemResources resources
     ) {
-        if(isRecentSearchSuggestion) {
+        if(isRecentItem(getItemModel())) {
             viewHolder.removeBtnIv.setImageDrawable(
                 Utils.getColoredDrawable(
                     viewHolder.removeBtnIv.getContext(),
