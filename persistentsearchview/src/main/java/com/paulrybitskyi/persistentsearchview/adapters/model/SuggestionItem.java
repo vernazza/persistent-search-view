@@ -164,7 +164,7 @@ public class SuggestionItem extends BaseItem<
         final Suggestion suggestion = getItemModel();
         final String text = suggestion.getText();
         final int startIndex = suggestion.getText().toLowerCase().indexOf(resources.getCurrentQuery().toLowerCase());
-        final int endIndex = Math.min(resources.getCurrentQuery().length(), text.length());
+        final int endIndex = Math.min(startIndex + resources.getCurrentQuery().length(), text.length());
         final boolean isCurrentQueryValid = !TextUtils.isEmpty(resources.getCurrentQuery());
         final boolean isStartIndexValid = (startIndex != -1);
         final boolean isEndIndexValid = (startIndex <= endIndex);
