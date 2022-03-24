@@ -94,8 +94,6 @@ import static com.paulrybitskyi.persistentsearchview.utils.ViewUtils.updateHeigh
  * of useful features.
  */
 public class PersistentSearchView extends FrameLayout {
-
-
     private static final int ANIMATION_DURATION_BUTTON_SCALING = 100;
     private static final int BACKGROUND_ANIMATION_MIN_DURATION = 150;
     private static final int BACKGROUND_ANIMATION_MAX_DURATION = 250;
@@ -2328,10 +2326,10 @@ public class PersistentSearchView extends FrameLayout {
 
         @Override
         public void onClick(View view) {
-            if(isExpanded()) {
-                collapse();
-            } else if(onLeftBtnClickListener != null) {
+            if(onLeftBtnClickListener != null) {
                 onLeftBtnClickListener.onClick(view);
+            } else if(isExpanded()) {
+                collapse();
             }
         }
 
